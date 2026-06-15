@@ -18,6 +18,7 @@ trusted in CI.
 
 - [Highlights](#highlights)
 - [Key Findings](#key-findings)
+- [Visualizations](#visualizations)
 - [Dataset](#dataset)
 - [Project Structure](#project-structure)
 - [Architecture](#architecture)
@@ -69,6 +70,38 @@ heavy discounting — making discount policy the single biggest margin lever.
 
 > Numbers are produced reproducibly; re-running the pipeline regenerates them.
 
+## Visualizations
+
+All charts below are generated automatically by the pipeline (`sales-analysis`)
+and saved as high-DPI PNGs. They are regenerated from the raw data on every run.
+
+### Monthly Sales & Profit Trend
+
+Revenue and profit both trend upward across 2011–2014, with pronounced Q4
+seasonality — a clear signal for inventory and staffing planning.
+
+![Monthly sales and profit trend](docs/images/monthly_sales_trend.png)
+
+### Top Products by Sales
+
+The ten highest-grossing products, with revenue labelled on each bar.
+
+![Top products by sales](docs/images/top_products_by_sales.png)
+
+### Profit by Sub-Category
+
+A diverging view of profitability: green sub-categories add margin, red ones
+erode it. Tables and Furnishings stand out as recurring loss-makers.
+
+![Profit by sub-category](docs/images/profit_by_subcategory.png)
+
+### Customer Segmentation (RFM)
+
+Customers grouped into actionable marketing segments using Recency, Frequency
+and Monetary quartile scoring.
+
+![RFM customer segments](docs/images/rfm_segments.png)
+
 ## Dataset
 
 `superstore_sales.xlsx` — 51,290 rows × 21 columns.
@@ -100,6 +133,7 @@ Sales-Data-Analysis/
 │   ├── pipeline.py            # End-to-end orchestration
 │   └── cli.py                 # `sales-analysis` command line entry point
 ├── tests/                     # pytest unit tests
+├── docs/images/               # Rendered charts shown in this README
 ├── reports/                   # Generated tables, figures, summary.json (gitignored)
 ├── Sales Analysis.ipynb       # Original exploratory notebook
 ├── superstore dashboard.pbix  # Power BI dashboard
